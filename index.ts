@@ -52,8 +52,8 @@ enum UnitAbbreviation {
   "V" = Unit.vigintillion
 }
 
-export function unitNameFromNumber(int:number):string {
-  const power: number = getUnitPower(int);
+export function unitNameFromNumber(number:number):string {
+  const power: number = getUnitPower(number);
   return Unit[power];
 }
 
@@ -67,20 +67,20 @@ export function trimName(name:string): string {
   return UnitAbbreviation[power]
 }
 
-export function trimNumber(int:number): number {
-  const power = getUnitPower(int);
-  const numbers: string[] = int.toString().split("");
+export function trimNumber(number:number): number {
+  const power = getUnitPower(number);
+  const numbers: string[] = number.toString().split("");
   const short = numbers.splice(0, numbers.length - power).join("");
   return parseInt(short)
 }
 
-export function getUnitPower(int: number): number {
-  const power: number = getPower(int, true);
+export function getUnitPower(number: number): number {
+  const power: number = getPower(number, true);
   return power > 3 ? Math.floor(power/3)*3 : power;
 }
 
-export function getPower(int: number, round?: boolean): number {
+export function getPower(number: number, round?: boolean): number {
   return round
-    ? Math.round(Math.log(int) / Math.log(10))
-    : Math.log(int) / Math.log(10);
+    ? Math.round(Math.log(number) / Math.log(10))
+    : Math.log(number) / Math.log(10);
 }

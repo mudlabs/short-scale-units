@@ -2,15 +2,13 @@
   "version": "1.0.0",
   "name": "short-scale-units",
   "description": "A simple package providing helper functions for matching numbers with their _short scale unit_. And formatting the numbers, or the unit values",
-  "author": {
-    "name": "Mudlabs",
-    "email": "npm@mudlabs.com.au"
-  },
-  "files": ["dist/"],
+  "author": "Mudlabs <npm@mudlabs.com.au>",
+  "files": [
+    "dist/"
+  ],
   "types": "./dist/index.d.ts",
   "main": "./dist/index.js",
   "license": "MIT",
-  "readme": "README.md",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "prepare": "tsc"

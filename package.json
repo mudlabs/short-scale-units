@@ -1,0 +1,54 @@
+{
+  "version": "1.0.0",
+  "name": "short-scale-units",
+  "description": "A simple package providing helper functions for matching numbers with their _short scale unit_. And formatting the numbers, or the unit values",
+  "author": {
+    "name": "Mudlabs",
+    "email": "npm@mudlabs.com.au"
+  },
+  "files": ["dist/"],
+  "types": "./dist/index.d.ts",
+  "main": "./dist/index.js",
+  "license": "MIT",
+  "readme": "README.md",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "prepare": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mudlabs/short-scale-units.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mudlabs/short-scale-units/issues"
+  },
+  "homepage": "https://github.com/mudlabs/short-scale-units#readme",
+  "keywords": [
+    "Numbers",
+    "Short",
+    "Scale",
+    "Units",
+    "Power",
+    "Thousand",
+    "Million",
+    "Billion",
+    "Trillion",
+    "Quadrillion",
+    "Quintillion",
+    "Sextillion",
+    "Septillion",
+    "Octillion",
+    "Nonillion",
+    "Decillion",
+    "Undecillion",
+    "Duodecillion",
+    "Tredecillion",
+    "Quattuordecillion",
+    "Quindecillion",
+    "Sexdecillion",
+    "Septendecillion",
+    "Octodecillion",
+    "Novemdecillion",
+    "Vigintillion"
+  ]
+}

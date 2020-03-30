@@ -44,43 +44,43 @@ const ssu = require("short-scale-units");
 ### API
 
 #### unitNameFromNumber
-Provides the English unit name for the given integer.
+Provides the English unit name for the given number.
 ```js
 const name = ssu.unitNameFromNumber(17388);
 // name = "thousand"
 ```
 
 #### numberFromUnitName
-Provides the base unit integer for the given unit name.
+Provides the base unit number for the given unit name.
 ```js
 const number = ssu.numberFromUnitName("thousand");
 // number = 1000
 ```
 
 #### trimNumber
-Provides the short-hand abbreviation of an integer, relative to its unit.
+Provides the short-hand abbreviation of a number, relative to its unit.
 ```js
 const trimmed = ssu.trimNumber(17388);
 // trimmed = 17 (because 17388 is 17 thousands)
 ```
 
 #### trimName
-Provides an abbreviation of the short unit name;
+Provides an abbreviation of the unit name;
 ```js
 const abbreviation = trimName("thousand");
 // abbreviation = "K"
 ```
 
 #### getUnitPower
-Provides the power of ten for the given integer, relative to its unit.
-- If you want the integers real power use `getPower`.
+Provides the power for the given number, relative to its unit.
+- If you want the numbers real power use `getPower`.
 ```js
 const unitPower = ssu.getUnitPower(17388);
 // unitPower = 3
 ```
 
 #### getPower
-Provides the power of ten for the given integer.
+Provides the power for the given number.
 - If you want the power relative the its unit use `getUnitPower`.
 ```js
 const powerRound = ssu.getPower(17388, true);

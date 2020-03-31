@@ -11,7 +11,7 @@
   "license": "MIT",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "tsc && node -e 'require(\"./scripts/cleaner\").commentCleaner()'"
+    "prepare": "tsc && node -p \"require('./cleaner').clean()\""
   },
   "repository": {
     "type": "git",

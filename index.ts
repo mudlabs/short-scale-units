@@ -101,8 +101,11 @@ export function trimNumber(number:number): number {
  * @returns The numbers unit power.
  */
 export function getUnitPower(number: number): number {
-  const power: number = getPower(number, true);
-  return power > 3 ? Math.floor(power/3)*3 : power;
+  const power: number = getPower(number, false);
+  const base = Math.floor(Math.max(power, 1));
+  return power > 3 
+    ? Math.floor(power/3)*3 
+    : Math.floor(power/base)*base;
 }
 /**
  * Provides the power for the given number.
@@ -112,7 +115,8 @@ export function getUnitPower(number: number): number {
  * @returns The numbers power
  */
 export function getPower(number: number, round?: boolean): number {
+  const target = Math.max(number, 1);
   return round
-    ? Math.round(Math.log(number) / Math.log(10))
-    : Math.log(number) / Math.log(10);
+    ? Math.round(Math.log(target) / Math.log(10))
+    : Math.log(target) / Math.log(10);
 }

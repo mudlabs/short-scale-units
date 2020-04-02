@@ -1,5 +1,5 @@
 {
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "short-scale-units",
   "description": "A simple package providing helper functions for matching numbers with their _short scale unit_. And formatting the numbers, or the unit values",
   "author": "Mudlabs <npm@mudlabs.com.au>",

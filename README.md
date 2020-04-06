@@ -31,10 +31,11 @@ npm install short-scale-units
 ---
 
 ### Import/Require
-```js
+```ts
 // TypeScript
 import * as ssu from "short-scale-units";
-
+```
+```js
 // JavaScript
 const ssu = require("short-scale-units");
 ```
@@ -45,28 +46,32 @@ const ssu = require("short-scale-units");
 
 #### unitNameFromNumber
 Provides the English unit name for the given number.
-```js
+```ts
 const name = ssu.unitNameFromNumber(17388);
 // name = "thousand"
 ```
 
 #### numberFromUnitName
 Provides the base unit number for the given unit name.
-```js
-const number = ssu.numberFromUnitName("thousand");
+```ts
+const integer = ssu.numberFromUnitName("thousand");
+const notation = ssu.numberFromUnitName("sextillion");
+const raw = ssu.numberFromUnitName("sextillion", true);
 // number = 1000
+// notation = 1e+21
+// raw = "1000000000000000000000"
 ```
 
 #### trimNumber
 Provides the short-hand abbreviation of a number, relative to its unit.
-```js
+```ts
 const trimmed = ssu.trimNumber(17388);
 // trimmed = 17 (because 17388 is 17 thousands)
 ```
 
 #### trimName
 Provides an abbreviation of the unit name;
-```js
+```ts
 const abbreviation = trimName("thousand");
 // abbreviation = "K"
 ```
@@ -74,7 +79,7 @@ const abbreviation = trimName("thousand");
 #### getUnitPower
 Provides the power for the given number, relative to its unit.
 - If you want the numbers real power use `getPower`.
-```js
+```ts
 const unitPower = ssu.getUnitPower(17388);
 // unitPower = 3
 ```
@@ -82,7 +87,7 @@ const unitPower = ssu.getUnitPower(17388);
 #### getPower
 Provides the power for the given number.
 - If you want the power relative the its unit use `getUnitPower`.
-```js
+```ts
 const powerRound = ssu.getPower(17388, true);
 const power = ssu.getPower(17388);
 // powerRound = 4

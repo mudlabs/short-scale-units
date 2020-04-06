@@ -1,5 +1,5 @@
 {
-  "version": "1.0.1",
+  "version": "1.0.2",
   "name": "short-scale-units",
   "description": "A simple package providing helper functions for matching numbers with their _short scale unit_. And formatting the numbers, or the unit values",
   "author": "Mudlabs <npm@mudlabs.com.au>",
@@ -10,8 +10,8 @@
   "main": "./dist/index.js",
   "license": "MIT",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "prepare": "tsc && node -p \"require('./cleaner').clean()\""
+    "test": "ts-node tests/test",
+    "prepare": "tsc && ts-node cleaner"
   },
   "repository": {
     "type": "git",
@@ -48,5 +48,9 @@
     "Octodecillion",
     "Novemdecillion",
     "Vigintillion"
-  ]
+  ],
+  "devDependencies": {
+    "@types/node": "^13.11.0"
+  },
+  "dependencies": {}
 }

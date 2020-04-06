@@ -11,5 +11,6 @@
     "noImplicitAny": false,
     "alwaysStrict": true,
     "noImplicitReturns": true
-  }
+  },
+  "files": ["index.ts"]
 }

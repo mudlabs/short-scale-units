@@ -65,11 +65,29 @@ export function unitNameFromNumber(number:number):string {
 /**
  * Provides the base unit number for the given unit name.
  * @param name The unit name you want the base number of.
- * @returns The base unit number.
+ * @param raw Specify `true` if you want the **raw unit integer**. Otherwise large numbers will be in scientific notation `1e+X`.
+ * @returns The unit value as a `number`, or a `string` if `raw` was specified true.
  */
-export function numberFromUnitName(name:string):number {
+export function numberFromUnitName(
+  name:string, 
+  raw?: boolean
+): number | string {
   const power: number = Unit[name.toLowerCase()];
-  return Math.pow(10, power);
+  const unitNumber = Math.pow(10, power);
+  const isScientific = new RegExp(/e\+\d+$/).test(unitNumber.toString());
+  
+  if (raw && isScientific) {
+    let string = "1";
+    const power = parseInt(unitNumber.toString().split("+")[1]);
+    for(let i=0; i<power; i++) {
+      string += "0";
+    }
+    return string;
+  } else if (raw) {
+    return unitNumber.toString();
+  } else {
+    return unitNumber;
+  }
 }
 
 /**
@@ -88,10 +106,13 @@ export function trimName(name:string): string {
  * @returns The shortend number.
  */
 export function trimNumber(number:number): number {
-  const power = getUnitPower(number);
-  const numbers: string[] = number.toString().split("");
-  const short = numbers.splice(0, numbers.length - power).join("");
-  return parseInt(short)
+  const power = getPower(number);
+  const base = Math.round(Math.max(power, 1));
+  const value = power > 3
+    ? Math.floor(power/3)*3
+    : Math.round(power/base)*base;
+  
+  return Math.floor(number / eval(`1e+${value}`));
 }
 
 /**
@@ -101,12 +122,15 @@ export function trimNumber(number:number): number {
  * @returns The numbers unit power.
  */
 export function getUnitPower(number: number): number {
-  const power: number = getPower(number, false);
+  const power: number = Math.fround(getPower(number));
   const base = Math.floor(Math.max(power, 1));
-  return power > 3 
+  const value = power > 3 
     ? Math.floor(power/3)*3 
     : Math.floor(power/base)*base;
+  
+  return value; 
 }
+
 /**
  * Provides the power for the given number.
  * - If you want the power relative to its unit use `getUnitPower`.

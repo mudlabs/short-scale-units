@@ -16,6 +16,8 @@ export function test(name:string , fn: Function, title?:string, ) {
 
 function run() {
   let displayTitle = "";
+  let passed = 0;
+  let failed = 0;
 
   const logTitle = (testTitle) => {
     if (testTitle && testTitle !== displayTitle) {
@@ -32,9 +34,11 @@ function run() {
     try {
       logTitle(test.title)
       test.fn();
+      passed++
       console.log('✅', test.name)
     } catch (error) {
       console.log('❌', test.name);
+      failed++
       for( let i in error) {
         console.log(`\t ${i}: ${error[i]}`)
       }
@@ -43,7 +47,9 @@ function run() {
         console.log("\n")
       }
     }
-  })
+  });
+
+  console.log(`${passed} tests passed, and ${failed} tests failed.\n`);
 }
 
 

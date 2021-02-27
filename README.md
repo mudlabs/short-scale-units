@@ -1,11 +1,11 @@
-[npm]: https://img.shields.io/npm/v/short-scale-units.svg?color=949393
-[install size]: https://badgen.net/packagephobia/install/short-scale-units?color=949393
-[support]: https://img.shields.io/static/v1.svg?logo=paypal&label=Support&message=Mudlabs&style=for-the-badge&color=0c67b5&labelColor=afb0b9
+[npm]: https://img.shields.io/npm/v/short-scale-units.svg?labelColor=cb3837&color=faebeb&style=for-the-badge
+[size]: https://img.shields.io/github/languages/code-size/mudlabs/short-scale-units?labelColor=146490&color=e9f6fc&style=for-the-badge
+[support]: https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/mudlabs/shieldsio/endpoint/badges/github-sponsor.json
 <!-- Badges -->
 [![npm]](https://www.npmjs.com/package/short-scale-units)
-[![install size]](https://www.npmjs.com/package/short-scale-units)
+[![size]](https://www.npmjs.com/package/short-scale-units)
 <br/>
-[![support]](https://paypal.me/mudlabs)
+[![support]](https://github.com/sponsors/mudlabs)
 
 # Short Scale Units
 

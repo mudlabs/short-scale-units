@@ -213,12 +213,16 @@ enum UnitAbbreviation {
   "C" = Unit.centillion
 }
 
+const safeNumber = (number: ShortScaleUnit) => typeof number === "bigint" ? number.toString() : number;
+
+export type ShortScaleUnit = number | bigint | string;
+
 /**
  * Provides the English unit name for the given number.
  * @param number The number you want to match a unit to.
  * @returns The matched unit name.
  */
-export function unitNameFromNumber(number:number):string {
+export function unitNameFromNumber(number: ShortScaleUnit):string {
   const power: number = getUnitPower(number);
   return Unit[power];
 }
@@ -268,14 +272,14 @@ export function trimName(name:string): string {
  * @param number The number you want abbreviated to its unit value.
  * @returns The shortend number.
  */
-export function trimNumber(number:number): number {
+export function trimNumber(number: ShortScaleUnit): number {
   const power = getPower(number);
   const base = Math.round(Math.max(power, 1));
   const value = power > 3
     ? Math.floor(power/3)*3
     : Math.round(power/base)*base;
   
-  return Math.floor(number / eval(`1e+${value}`));
+  return Math.floor(safeNumber(number) as number / eval(`1e+${value}`));
 }
 
 /**
@@ -284,7 +288,7 @@ export function trimNumber(number:number): number {
  * @param number The number for which you want the unit power.
  * @returns The numbers unit power.
  */
-export function getUnitPower(number: number): number {
+export function getUnitPower(number: ShortScaleUnit): number {
   const power: number = Math.fround(getPower(number));
   const base = Math.floor(Math.max(power, 1));
   const value = power > 3 
@@ -301,8 +305,8 @@ export function getUnitPower(number: number): number {
  * @param round A boolean specifing the power should be rounded.
  * @returns The numbers power
  */
-export function getPower(number: number, round?: boolean): number {
-  const target = Math.max(number, 1);
+export function getPower(number: ShortScaleUnit, round?: boolean): number {
+  const target = Math.max(safeNumber(number) as number, 1);
   return round
     ? Math.round(Math.log(target) / Math.log(10))
     : Math.log(target) / Math.log(10);
